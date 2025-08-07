@@ -1,9 +1,9 @@
+import Footer, { MobileFooter } from "@/components/Footer";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Jaro } from "next/font/google";
 import { ThemeSwitcher } from "../components/ThemeSwitcher";
 import "./globals.css";
 import { Providers } from "./providers";
-import Footer from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,6 +23,9 @@ const jaro = Jaro({
 });
 
 export const metadata: Metadata = {
+  icons: {
+    icon: "/S.svg",
+  },
   title: "Sniply",
   description: "Smarter links for a faster web",
 };
@@ -56,7 +59,12 @@ export default function RootLayout({
           <ThemeSwitcher />
           {children}
         </Providers>
-        <Footer />
+        <div className="md:hidden">
+          <MobileFooter />
+        </div>
+        <div className="hidden md:block">
+          <Footer />
+        </div>
       </body>
     </html>
   );
