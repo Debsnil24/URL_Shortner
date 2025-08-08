@@ -1,12 +1,11 @@
 
-
 export default function Home() {
   return (
     <div
-      className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 transition-colors"
+      className="font-sans flex-col items-center justify-items-center max-h-screen sm:p-20 my-36 md:my-38 transition-colors"
       style={{ background: "var(--background)", color: "var(--foreground)" }}
     >
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+      <main className="flex flex-col gap-[32px] items-center sm:items-start">
         <div className="relative">
           <h1
             className="font-jaro text-6xl font-bold transition-colors"
