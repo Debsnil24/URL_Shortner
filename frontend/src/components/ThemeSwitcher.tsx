@@ -21,7 +21,7 @@ export function ThemeSwitcher() {
   if (!mounted) {
     return (
       <Button
-        className="fixed top-4 right-4 z-50 p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+        className="fixed top-4 right-4 z-50 p-2 rounded-lg glass-effect glass-effect-default"
         aria-label="Toggle theme"
       >
         <SunIcon className="h-5 w-5" />
@@ -34,7 +34,7 @@ export function ThemeSwitcher() {
   return (
     <Button
       onPress={toggleTheme}
-      className="fixed top-4 right-4 z-50 p-2 rounded-lg bg-gray-100 dark:bg-gray-400 hover:bg-gray-200 dark:hover:bg-gray-300 transition-colors"
+      className="fixed top-4 right-4 z-50 p-2 rounded-lg glass-effect glass-effect-default"
       aria-label="Toggle theme"
     >
       {currentTheme === "dark" ? (
