@@ -1,8 +1,11 @@
-import { Divider } from "@heroui/react";
+"use client"
 import { Icon } from "@iconify/react";
 import Link from "next/link";
+import Divider from "./divider";
+import { useRouter } from "next/navigation";
 
 export default function Footer() {
+  const router = useRouter();
   return (
     <div
       className=" flex-col flex-wrap items-center justify-between w-full px-12 py-4"
@@ -10,8 +13,9 @@ export default function Footer() {
     >
       <div className="flex gap-4 items-center justify-between w-full px-4">
         <h1
-          className="font-jaro text-xl font-bold transition-colors"
+          className="font-jaro text-xl font-bold transition-colors cursor-pointer "
           style={{ color: "var(--text-primary)" }}
+          onClick={() => router.push("/")}
         >
           SNIPLY
         </h1>
@@ -28,50 +32,54 @@ export default function Footer() {
         </div>
         <div className="flex gap-4 items-center justify-between">
           <Link
+            target="_blank"
             className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-            href="#"
+            href="https://www.linkedin.com/in/debsnil24samudra/"
           >
             <Icon icon="mdi:linkedin" className="w-5 h-5" />
           </Link>
           <Link
+            target="_blank"
             className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-            href="#"
+            href="https://drive.google.com/file/d/1wJif25oy9YWxalOUUe5sfglah12sxjq2/view?usp=drivesdk"
           >
             <Icon icon="mdi:resume" className="w-5 h-5" />
           </Link>
           <Link
+            target="_blank"
             className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-            href="#"
+            href="https://github.com/Debsnil24"
           >
             <Icon icon="mdi:github" className="w-5 h-5" />
           </Link>
         </div>
-          </div>
-          <div className="py-2 text-gray-500">
-              <Divider />
-          </div>
+      </div>
+      <div className="py-2">
+        <Divider />
+      </div>
       <div className="flex gap-4 items-center justify-between w-full px-4">
-              <p className="text-gray-500 text-sm">© 2025 SNIPLY.  All rights reserved.</p>
-              <div className="flex gap-4 items-center justify-between text-sm">
-                  <Link className="hover:underline hover:underline-offset-4" href="/">
-                    Privacy Policy
-                  </Link>
-                  <Link className="hover:underline hover:underline-offset-4" href="/">
-                    Terms of Service
-                  </Link>
-              </div>
+        <p className="text-gray-500 text-sm">
+          © 2025 SNIPLY. All rights reserved.
+        </p>
+        <div className="flex gap-4 items-center justify-between text-sm">
+          <Link className="hover:underline hover:underline-offset-4" href="/">
+            Privacy Policy
+          </Link>
+          <Link className="hover:underline hover:underline-offset-4" href="/">
+            Terms of Service
+          </Link>
+        </div>
       </div>
     </div>
   );
 }
-
 export function MobileFooter() {
   return (
     <div
       className=" flex-col flex-wrap items-center justify-between w-full px-4 py-4"
       style={{ color: "var(--text-secondary)" }}
     >
-      <div className="py-2 text-gray-500">
+      <div className="py-2">
         <Divider />
       </div>
       <div className="flex gap-4 items-center justify-between w-full px-4">
@@ -86,20 +94,23 @@ export function MobileFooter() {
 
         <div className="flex gap-4 items-center justify-between">
           <Link
+            target="_blank"
             className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-            href="#"
+            href="https://www.linkedin.com/in/debsnil24samudra/"
           >
             <Icon icon="mdi:linkedin" className="w-5 h-5" />
           </Link>
           <Link
+            target="_blank"
             className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-            href="#"
+            href="https://drive.google.com/file/d/1wJif25oy9YWxalOUUe5sfglah12sxjq2/view?usp=drivesdk"
           >
             <Icon icon="mdi:resume" className="w-5 h-5" />
           </Link>
           <Link
+            target="_blank"
             className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-            href="#"
+            href="https://github.com/Debsnil24"
           >
             <Icon icon="mdi:github" className="w-5 h-5" />
           </Link>

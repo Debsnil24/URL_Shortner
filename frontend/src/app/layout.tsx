@@ -1,7 +1,7 @@
 import Footer, { MobileFooter } from "@/components/Footer";
+import AuthDialog from "@/components/auth/authDialog";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Jaro } from "next/font/google";
-import { ThemeSwitcher } from "../components/ThemeSwitcher";
 import "./globals.css";
 import { Providers } from "./providers";
 
@@ -32,32 +32,18 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              try {
-                if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                  document.documentElement.classList.add('dark')
-                } else {
-                  document.documentElement.classList.remove('dark')
-                }
-              } catch (_) {}
-            `,
-          }}
-        />
-      </head>
+    <html lang="en">
+      <head></head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${jaro.variable} antialiased`}
       >
         <Providers>
-          <ThemeSwitcher />
           {children}
+          <AuthDialog />
         </Providers>
         <div className="md:hidden">
           <MobileFooter />
