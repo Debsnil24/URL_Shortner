@@ -2,7 +2,7 @@
 
 import { Modal, ModalBody, ModalContent, ModalHeader } from "@heroui/react";
 import { Icon } from "@iconify/react/dist/iconify.js";
-import Logo from "./logo";
+import Image from "next/image";
 
 interface ModalProps {
   children: React.ReactNode;
@@ -30,7 +30,13 @@ export default function CustomModal({
       <ModalContent>
         <ModalHeader>
           <div className="flex flex-row gap-2 items-center justify-between w-full">
-            <Logo fontSize="xl" />
+            <Image
+              src="/SNIPLY.svg"
+              alt="Sniply Logo"
+              width={45}
+              height={45}
+              className="invert-100"
+            />
             <Icon
               icon="mdi:close"
               className="w-5 h-5 cursor-pointer"

@@ -3,7 +3,7 @@ import { Icon } from "@iconify/react";
 import Link from "next/link";
 import Divider from "./divider";
 import { useRouter } from "next/navigation";
-import Logo from "./logo";
+import Image from "next/image";
 
 export default function Footer() {
   const router = useRouter();
@@ -13,7 +13,14 @@ export default function Footer() {
       style={{ color: "var(--text-secondary)" }}
     >
       <div className="flex gap-4 items-center justify-between w-full px-4">
-        <Logo fontSize="xl" onClick={() => router.push("/")} />
+        <Image
+          src="/SNIPLY.svg"
+          alt="Sniply Logo"
+          width={50}
+          height={50}
+          className="invert-100"
+          onClick={() => router.push("/")}
+        />
         <div className="flex gap-4 items-center justify-between">
           <Link
             target="_blank"
