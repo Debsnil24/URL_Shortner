@@ -14,12 +14,14 @@ interface AppState {
     // UI state
     isLoading: boolean
     isAuthDialogOpen: boolean
+    isLogin: boolean
     // Actions
     setAuthenticated: (isAuth: boolean) => void
     setUser: (user: User) => void
     setLoading: (loading: boolean) => void
     logout: () => void
     setAuthDialogOpen: (open: boolean) => void
+    setIsLogin: (isLogin: boolean) => void
 }
 
 export const useStore = create<AppState>((set) => ({
@@ -28,11 +30,12 @@ export const useStore = create<AppState>((set) => ({
     user: null,
     isLoading: false,
     isAuthDialogOpen: false,
-
+    isLogin: true,
     // Actions
     setAuthenticated: (isAuth) => set({ isAuthenticated: isAuth }),
     setUser: (user) => set({ user }),
     setLoading: (loading) => set({ isLoading: loading }),
     logout: () => set({ isAuthenticated: false, user: null }),
     setAuthDialogOpen: (open) => set({ isAuthDialogOpen: open }),
+    setIsLogin: (isLogin) => set({ isLogin }),
 }))

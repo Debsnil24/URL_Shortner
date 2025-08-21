@@ -3,6 +3,7 @@ import { Icon } from "@iconify/react";
 import Link from "next/link";
 import Divider from "./divider";
 import { useRouter } from "next/navigation";
+import Logo from "./logo";
 
 export default function Footer() {
   const router = useRouter();
@@ -12,24 +13,7 @@ export default function Footer() {
       style={{ color: "var(--text-secondary)" }}
     >
       <div className="flex gap-4 items-center justify-between w-full px-4">
-        <h1
-          className="font-jaro text-xl font-bold transition-colors cursor-pointer "
-          style={{ color: "var(--text-primary)" }}
-          onClick={() => router.push("/")}
-        >
-          SNIPLY
-        </h1>
-        <div className="flex gap-8 items-center justify-between ">
-          <Link className="hover:underline hover:underline-offset-4" href="/">
-            About
-          </Link>
-          <Link className="hover:underline hover:underline-offset-4" href="/">
-            Features
-          </Link>
-          <Link className="hover:underline hover:underline-offset-4" href="/">
-            Support
-          </Link>
-        </div>
+        <Logo fontSize="xl" onClick={() => router.push("/")} />
         <div className="flex gap-4 items-center justify-between">
           <Link
             target="_blank"
@@ -62,6 +46,9 @@ export default function Footer() {
           © 2025 SNIPLY. All rights reserved.
         </p>
         <div className="flex gap-4 items-center justify-between text-sm">
+          <Link className="hover:underline hover:underline-offset-4" href="/">
+            Support
+          </Link>
           <Link className="hover:underline hover:underline-offset-4" href="/">
             Privacy Policy
           </Link>
@@ -116,24 +103,15 @@ export function MobileFooter() {
           </Link>
         </div>
       </div>
-      {/* <div className="flex-col gap-4 items-center justify-center ">
-        <Link className="hover:underline hover:underline-offset-4" href="/">
-          About
-        </Link>
-        <Link className="hover:underline hover:underline-offset-4" href="/">
-          Features
-        </Link>
-        <Link className="hover:underline hover:underline-offset-4" href="/">
-          Support
-        </Link>
-      </div> */}
-
       <div className="flex gap-4 items-center justify-center w-full px-4 mt-4">
         <p className="text-gray-500 text-sm">
           © 2025 SNIPLY. All rights reserved.
         </p>
       </div>
       <div className="flex gap-4 items-center justify-center text-sm w-full">
+        <Link className="hover:underline hover:underline-offset-4" href="/">
+          Support
+        </Link>
         <Link className="hover:underline hover:underline-offset-4" href="/">
           Privacy Policy
         </Link>
