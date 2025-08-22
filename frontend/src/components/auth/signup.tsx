@@ -137,7 +137,7 @@ export default function Signup() {
       <div className="flex gap-2 w-full justify-between items-center -mt-1.5">
         <div className="flex flex-row gap-1 items-center">
           <span
-            className={`text-xs ${
+            className={`text-[10px]  md:text-xs ${
               passwordValidation.minLength ? "text-green-500" : "text-gray-500"
             }`}
           >
@@ -146,7 +146,7 @@ export default function Signup() {
         </div>
         <div className="flex flex-row gap-1 items-center">
           <span
-            className={`text-xs ${
+            className={`text-[10px]  md:text-xs ${
               passwordValidation.hasUppercase
                 ? "text-green-500"
                 : "text-gray-500"
@@ -157,7 +157,7 @@ export default function Signup() {
         </div>
         <div className="flex flex-row gap-1 items-center">
           <span
-            className={`text-xs ${
+            className={`text-[10px]  md:text-xs ${
               passwordValidation.hasSpecialChar
                 ? "text-green-500"
                 : "text-gray-500"

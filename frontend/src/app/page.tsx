@@ -10,10 +10,10 @@ export default function Home() {
 
   return (
     <div
-      className="font-sans flex flex-col items-center justify-items-center h-[calc(100vh-150px)] md:h-[calc(100vh-90px)]"
+      className="font-sans flex flex-col items-center justify-center min-h-screen md:min-h-[calc(100vh-85px)]"
       style={{ background: "var(--background)", color: "var(--foreground)" }}
     >
-      <div className="flex flex-col gap-[32px] items-center sm:items-start mt-40 md:mt-60">
+      <div className="flex flex-col gap-[32px] items-center sm:items-start">
         <div className="relative">
           <Image
             src="/SNIPLY.svg"
