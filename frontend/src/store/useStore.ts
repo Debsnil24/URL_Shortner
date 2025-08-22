@@ -15,6 +15,9 @@ interface AppState {
     isLoading: boolean
     isAuthDialogOpen: boolean
     isLogin: boolean
+    isPrivacyPolicyOpen: boolean
+    isTermsOfServiceOpen: boolean
+    isSupportOpen: boolean
     // Actions
     setAuthenticated: (isAuth: boolean) => void
     setUser: (user: User) => void
@@ -22,6 +25,9 @@ interface AppState {
     logout: () => void
     setAuthDialogOpen: (open: boolean) => void
     setIsLogin: (isLogin: boolean) => void
+    setIsPrivacyPolicyOpen: (open: boolean) => void
+    setIsTermsOfServiceOpen: (open: boolean) => void
+    setIsSupportOpen: (open: boolean) => void
 }
 
 export const useStore = create<AppState>((set) => ({
@@ -31,6 +37,9 @@ export const useStore = create<AppState>((set) => ({
     isLoading: false,
     isAuthDialogOpen: false,
     isLogin: true,
+    isPrivacyPolicyOpen: false,
+    isTermsOfServiceOpen: false,
+    isSupportOpen: false,
     // Actions
     setAuthenticated: (isAuth) => set({ isAuthenticated: isAuth }),
     setUser: (user) => set({ user }),
@@ -38,4 +47,7 @@ export const useStore = create<AppState>((set) => ({
     logout: () => set({ isAuthenticated: false, user: null }),
     setAuthDialogOpen: (open) => set({ isAuthDialogOpen: open }),
     setIsLogin: (isLogin) => set({ isLogin }),
+    setIsPrivacyPolicyOpen: (open) => set({ isPrivacyPolicyOpen: open }),
+    setIsTermsOfServiceOpen: (open) => set({ isTermsOfServiceOpen: open }),
+    setIsSupportOpen: (open) => set({ isSupportOpen: open }),
 }))

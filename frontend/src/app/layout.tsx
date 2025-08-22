@@ -1,5 +1,8 @@
 import Footer, { MobileFooter } from "@/components/Footer";
 import AuthDialog from "@/components/auth/authDialog";
+import PrivacyPolicy from "@/components/privacyPolicy";
+import TermsCondition from "@/components/termsCondition";
+import Support from "@/components/support";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Jaro } from "next/font/google";
 import "./globals.css";
@@ -44,6 +47,9 @@ export default function RootLayout({
         <Providers>
           {children}
           <AuthDialog />
+          <PrivacyPolicy />
+          <TermsCondition />
+          <Support />
         </Providers>
         <div className="md:hidden">
           <MobileFooter />
