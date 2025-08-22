@@ -1,9 +1,27 @@
+import { useStore } from "@/store/useStore";
 import { Button, Input } from "@heroui/react";
 import { Icon } from "@iconify/react/dist/iconify.js";
-import { useStore } from "@/store/useStore";
+import { useEffect, useState } from "react";
 
 export default function Login() {
   const { setAuthDialogOpen, setIsLogin } = useStore();
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+  const [isFormValid, setIsFormValid] = useState(false);
+
+  // Check if all fields are filled
+  useEffect(() => {
+    const emailValid = formData.email.trim().length > 0;
+    const passwordValid = formData.password.trim().length > 0;
+
+    setIsFormValid(emailValid && passwordValid);
+  }, [formData.email, formData.password]);
+
+  const handleInputChange = (field: string, value: string) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
+  };
 
   return (
     <>
@@ -17,30 +35,32 @@ export default function Login() {
         isClearable
         type="email"
         placeholder="Enter your email"
+        value={formData.email}
+        onValueChange={(value) => handleInputChange("email", value)}
         startContent={
           <Icon icon="mdi:email" className="w-5 h-5 text-gray-700" />
         }
         label={<p className="text-white ml-1">Email</p>}
         labelPlacement="outside"
-        className="text-white"
         classNames={{
           clearButton: "text-black",
-          input: ["placeholder:text-xs"],
+          input: ["placeholder:text-xs", "text-black"],
         }}
       />
       <Input
         isClearable
         type="password"
         placeholder="Enter your password"
+        value={formData.password}
+        onValueChange={(value) => handleInputChange("password", value)}
         startContent={
           <Icon icon="mdi:lock" className="w-5 h-5 text-gray-700" />
         }
         label={<p className="text-white ml-1">Password</p>}
         labelPlacement="outside"
-        className="text-white"
         classNames={{
           clearButton: "text-black",
-          input: ["placeholder:text-xs"],
+          input: ["placeholder:text-xs", "text-black"],
         }}
       />
       <div className="flex gap-2 w-full justify-end items-center -mt-1.5 ">
@@ -53,12 +73,15 @@ export default function Login() {
       </div>
       <Button
         color="primary"
+        isDisabled={!isFormValid}
         onPress={() => {
           console.log("Login pressed");
           setAuthDialogOpen(false);
         }}
         radius="full"
-        className="text-md font-semibold"
+        className={`text-md font-semibold ${
+          !isFormValid ? "opacity-50 cursor-not-allowed" : ""
+        }`}
       >
         Sign In
       </Button>
